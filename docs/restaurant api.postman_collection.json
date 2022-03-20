@@ -1,0 +1,1945 @@
+{
+	"info": {
+		"_postman_id": "b160490b-e138-4e2e-b776-d69292354fc6",
+		"name": "restaurant api",
+		"description": "This is the documentation of restaurant solution APIs.\n\nIt includes Auth API, User APIs, Table APIs and Reservation APIs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token\", jsonData.token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"empNum\": \"0001\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api-user/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api-user",
+								"login"
+							]
+						},
+						"description": "Login to the system and obtain the access toekn"
+					},
+					"response": [
+						{
+							"name": "login",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"empNum\": \"0001\",\r\n    \"password\": \"123456\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api-user/login",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-user",
+										"login"
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"token\": \"eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbXBOdW0iOiIwMDAxIiwiaWF0IjoxNjQ3NzE2NTM1LCJleHAiOjE2NDc3MjAxMzV9.9Wgs-jpuF655J69JAE9kCbPSJXA731phKAAtv52lzFE\"\r\n}"
+						}
+					]
+				}
+			],
+			"description": "All Authorization APIs.",
+			"auth": {
+				"type": "noauth"
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Add user",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"empNum\": \"0009\",\r\n    \"empName\": \"lary emp\",\r\n    \"role\": \"employee\",\r\n    \"password\": \"123456\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api-user/add-user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api-user",
+								"add-user"
+							]
+						},
+						"description": "Add user to system.\n\nONLY user with role admin can access this API."
+					},
+					"response": [
+						{
+							"name": "Add user",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"empNum\": \"0008\",\r\n    \"empName\": \"lary emp\",\r\n    \"role\": \"employee\",\r\n    \"password\": \"1234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api-user/add-user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-user",
+										"add-user"
+									]
+								}
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "63"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"3f-rBb+YlXBmf96f9IXxGwIhXy8jOU\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:02:49 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "User: 0009, added successfuly"
+						},
+						{
+							"name": "Add user (invalid employee number)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"empNum\": \"000\",\r\n    \"empName\": \"lary emp\",\r\n    \"role\": \"employee\",\r\n    \"password\": \"1234567\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api-user/add-user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-user",
+										"add-user"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "127"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"7f-iq7fJMhbG/9VJdU+c2i6KQaBl7I\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:03:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"wrong employee number (000), employee number can only have digits [0-9] and it must be 4 digits long\",\n    \"code\": \"23514\"\n}"
+						},
+						{
+							"name": "Add user (invalid password)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"empNum\": \"0009\",\r\n    \"empName\": \"lary emp\",\r\n    \"role\": \"employee\",\r\n    \"password\": \"12345\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api-user/add-user",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-user",
+										"add-user"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "56"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"38-nLX3x2rsuFMx2kMV0XOiLCBgWt0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:04:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"passwords must be at least 6 characters long\"\n}"
+						}
+					]
+				}
+			],
+			"description": "All User manipulation functions."
+		},
+		{
+			"name": "Table",
+			"item": [
+				{
+					"name": "Get all tables",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api-table/all-tables",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api-table",
+								"all-tables"
+							]
+						},
+						"description": "Returns all tables in the restaurant. deleted and un deleted tables. where deleted have the value deleted equal to ***true.***\n\nONLY user with role admin can access this API."
+					},
+					"response": [
+						{
+							"name": "Get all tables",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api-table/all-tables",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-table",
+										"all-tables"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "147"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"93-aRpV8fzXdCbAmRMYugxkuqCHG+0\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:06:07 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"tables\": [\n        {\n            \"table_number\": 2,\n            \"seats\": 3,\n            \"deleted\": false\n        },\n        {\n            \"table_number\": 3,\n            \"seats\": 7,\n            \"deleted\": false\n        },\n        {\n            \"table_number\": 1,\n            \"seats\": 4,\n            \"deleted\": false\n        }\n    ]\n}"
+						}
+					]
+				},
+				{
+					"name": "Add table",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"tableNumber\": 5,\r\n    \"seats\": 5\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api-table/add-table",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api-table",
+								"add-table"
+							]
+						},
+						"description": "Adds a table to restaurant. if table number exists it dose not add it; unless the existing value is for a deleted table at then it undeletes it an return adding conformation.\n\nONLY user with role admin can access this API."
+					},
+					"response": [
+						{
+							"name": "Add table",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tableNumber\": 4,\r\n    \"seats\": 5\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api-table/add-table",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-table",
+										"add-table"
+									]
+								}
+							},
+							"status": "Created",
+							"code": 201,
+							"_postman_previewlanguage": "html",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "text/html; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "27"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"1b-wq46neX/vXCD0tOcqA1955caykE\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:06:46 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "Table: 4, added successfuly"
+						},
+						{
+							"name": "Add table (invalid seats count)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"tableNumber\": 5,\r\n    \"seats\": 13\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api-table/add-table",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-table",
+										"add-table"
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "48"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"30-QtqSf90wlkrQVowUEMF8VW/mdLg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:07:15 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"table seats must be between 1 and 12\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Delete table",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api-table/one-table/:num",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api-table",
+								"one-table",
+								":num"
+							],
+							"variable": [
+								{
+									"key": "num",
+									"value": "4",
+									"description": "the number of the table that is requsted to delete\n"
+								}
+							]
+						},
+						"description": "Marks a table deleted IF there is no future reservation on it.\n\nONLY user with role admin can access this API."
+					},
+					"response": [
+						{
+							"name": "Delete table",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api-table/one-table/:num",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-table",
+										"one-table",
+										":num"
+									],
+									"variable": [
+										{
+											"key": "num",
+											"value": "4",
+											"description": "the number of the table that is requsted to delete\n"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16-GWsV8lj5M7Ia4ionwXCaGf2aQJk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:13:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Deleted!\"\n}"
+						},
+						{
+							"name": "Delete table (reserved or dose not exists)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api-table/one-table/:num",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-table",
+										"one-table",
+										":num"
+									],
+									"variable": [
+										{
+											"key": "num",
+											"value": "5",
+											"description": "the number of the table that is requsted to delete\n"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "71"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"47-QohVRaYeNEKgYnMzl0Ui+7bb464\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:15:02 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Connot delete a table that is reservedor dose not exists!\"\n}"
+						}
+					]
+				}
+			],
+			"description": "All Table manipulation APIs."
+		},
+		{
+			"name": "Reservations",
+			"item": [
+				{
+					"name": "Delete reservation",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api-reservation/cancel-reservation/:serial",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api-reservation",
+								"cancel-reservation",
+								":serial"
+							],
+							"variable": [
+								{
+									"key": "serial",
+									"value": "2",
+									"description": "the primary key of the reservation to delete"
+								}
+							]
+						},
+						"description": "Deletes reservations ONLY in the future."
+					},
+					"response": [
+						{
+							"name": "Delete reservation",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api-reservation/cancel-reservation/:serial",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-reservation",
+										"cancel-reservation",
+										":serial"
+									],
+									"variable": [
+										{
+											"key": "serial",
+											"value": "16",
+											"description": "the primary key of the reservation to delete"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "22"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"16-GWsV8lj5M7Ia4ionwXCaGf2aQJk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:18:18 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Deleted!\"\n}"
+						},
+						{
+							"name": "Delete reservation (connot delet past reservations)",
+							"originalRequest": {
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api-reservation/cancel-reservation/:serial",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-reservation",
+										"cancel-reservation",
+										":serial"
+									],
+									"variable": [
+										{
+											"key": "serial",
+											"value": "1",
+											"description": "the primary key of the reservation to delete"
+										}
+									]
+								}
+							},
+							"status": "Forbidden",
+							"code": 403,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "65"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"41-y+0dulkGBt95jOZAsZPS3B0+xhw\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:18:31 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"nothing to delete (cannot delete past reservations)\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all Reservations",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api-reservation/all-reservations/:page",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api-reservation",
+								"all-reservations",
+								":page"
+							],
+							"variable": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "page number"
+								}
+							]
+						},
+						"description": "Returns all reservations. it supports pagination so page number must be supplied.\n\nONLY user with role admin can use this API."
+					},
+					"response": [
+						{
+							"name": "Get all Reservations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api-reservation/all-reservations/:page",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-reservation",
+										"all-reservations",
+										":page"
+									],
+									"variable": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "page number"
+										}
+									]
+								}
+							},
+							"_postman_previewlanguage": null,
+							"header": null,
+							"cookie": [],
+							"body": "{\r\n    \"reservations\": [\r\n        {\r\n            \"serial\": 1,\r\n            \"customer_name\": \"ali aloosh\",\r\n            \"customer_mobile\": \"0500181665\",\r\n            \"table\": 1,\r\n            \"date\": \"2022-03-18T21:00:00.000Z\",\r\n            \"time_start\": \"12:00:00\",\r\n            \"time_end\": \"13:00:00\"\r\n        },\r\n        {\r\n            \"serial\": 2,\r\n            \"customer_name\": \"ali aloosh\",\r\n            \"customer_mobile\": \"0500181665\",\r\n            \"table\": 1,\r\n            \"date\": \"2022-03-18T21:00:00.000Z\",\r\n            \"time_start\": \"21:00:00\",\r\n            \"time_end\": \"22:30:00\"\r\n        }\r\n    ],\r\n    \"nextPage\": 2,\r\n    \"hasNextPage\": false\r\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Reservations - Filter by tables",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api-reservation/all-reservations-by-tables/:tables/:page",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api-reservation",
+								"all-reservations-by-tables",
+								":tables",
+								":page"
+							],
+							"variable": [
+								{
+									"key": "tables",
+									"value": "2,1",
+									"description": "table numbers to filter by"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "page number"
+								}
+							]
+						},
+						"description": "Returns all reservations filtered by tables. it supports pagination so page number must be supplied.\n\nONLY user with role admin can use this API."
+					},
+					"response": [
+						{
+							"name": "Get All Reservations - Filter by tables",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api-reservation/all-reservations-by-tables/:tables/:page",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-reservation",
+										"all-reservations-by-tables",
+										":tables",
+										":page"
+									],
+									"variable": [
+										{
+											"key": "tables",
+											"value": "2,1",
+											"description": "table numbers to filter by"
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "page number"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "377"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"179-PugJqpSlEq85S/j1LlqVop3Yd8A\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:19:12 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"reservations\": [\n        {\n            \"serial\": 1,\n            \"customer_name\": \"ali aloosh\",\n            \"customer_mobile\": \"0500181665\",\n            \"table\": 1,\n            \"date\": \"2022-03-18T21:00:00.000Z\",\n            \"time_start\": \"12:00:00\",\n            \"time_end\": \"13:00:00\"\n        },\n        {\n            \"serial\": 2,\n            \"customer_name\": \"ali aloosh\",\n            \"customer_mobile\": \"0500181665\",\n            \"table\": 1,\n            \"date\": \"2022-03-18T21:00:00.000Z\",\n            \"time_start\": \"21:00:00\",\n            \"time_end\": \"22:30:00\"\n        }\n    ],\n    \"nextPage\": 2,\n    \"hasNextPage\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Get All Reservations - Filter by date",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api-reservation/all-reservations-by-date/:page?from=val&to=val",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api-reservation",
+								"all-reservations-by-date",
+								":page"
+							],
+							"query": [
+								{
+									"key": "from",
+									"value": "val",
+									"description": "date range start"
+								},
+								{
+									"key": "to",
+									"value": "val",
+									"description": "date range end"
+								}
+							],
+							"variable": [
+								{
+									"key": "page",
+									"value": "1",
+									"description": "page number"
+								}
+							]
+						},
+						"description": "Returns all reservations filtered by date range. it supports pagination so page number must be supplied.\n\nONLY user with role admin can use this API."
+					},
+					"response": [
+						{
+							"name": "Get All Reservations - Filter by date (invalid date)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api-reservation/all-reservations-by-date/:page?from=03/16/202&to=12/18/2022",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-reservation",
+										"all-reservations-by-date",
+										":page"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "03/16/202",
+											"description": "date range start"
+										},
+										{
+											"key": "to",
+											"value": "12/18/2022",
+											"description": "date range end"
+										},
+										{
+											"key": null,
+											"value": null,
+											"disabled": true
+										}
+									],
+									"variable": [
+										{
+											"key": "page",
+											"value": "1",
+											"description": "page"
+										}
+									]
+								}
+							},
+							"status": "Unprocessable Entity",
+							"code": 422,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "93"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5d-ddmsHtKvu0bfBlj6vv6yiz+E5dg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:19:34 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"wrong date format for (from), proper date format is: mm/dd/yyyy e.g. 03/18/2022. \"\n}"
+						},
+						{
+							"name": "Get All Reservations - Filter by date",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api-reservation/all-reservations-by-date/:page?from=03/16/2022&to=03/19/2022",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-reservation",
+										"all-reservations-by-date",
+										":page"
+									],
+									"query": [
+										{
+											"key": "from",
+											"value": "03/16/2022"
+										},
+										{
+											"key": "to",
+											"value": "03/19/2022"
+										}
+									],
+									"variable": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "377"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"179-PugJqpSlEq85S/j1LlqVop3Yd8A\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:20:08 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"reservations\": [\n        {\n            \"serial\": 1,\n            \"customer_name\": \"ali aloosh\",\n            \"customer_mobile\": \"0500181665\",\n            \"table\": 1,\n            \"date\": \"2022-03-18T21:00:00.000Z\",\n            \"time_start\": \"12:00:00\",\n            \"time_end\": \"13:00:00\"\n        },\n        {\n            \"serial\": 2,\n            \"customer_name\": \"ali aloosh\",\n            \"customer_mobile\": \"0500181665\",\n            \"table\": 1,\n            \"date\": \"2022-03-18T21:00:00.000Z\",\n            \"time_start\": \"21:00:00\",\n            \"time_end\": \"22:30:00\"\n        }\n    ],\n    \"nextPage\": 2,\n    \"hasNextPage\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "Get Today reservations",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api-reservation/all-reservations-today/:timeOrder/:page",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api-reservation",
+								"all-reservations-today",
+								":timeOrder",
+								":page"
+							],
+							"variable": [
+								{
+									"key": "timeOrder",
+									"value": "ASC",
+									"description": "order rule"
+								},
+								{
+									"key": "page",
+									"value": "1",
+									"description": "page number"
+								}
+							]
+						},
+						"description": "Returns all reservations for today. it supports pagination so page number must be supplied. it also support order by time so order rule must be supplied."
+					},
+					"response": [
+						{
+							"name": "Get Today reservations",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api-reservation/all-reservations-today/:timeOrder/:page",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-reservation",
+										"all-reservations-today",
+										":timeOrder",
+										":page"
+									],
+									"variable": [
+										{
+											"key": "timeOrder",
+											"value": "ASC",
+											"description": "order rule"
+										},
+										{
+											"key": "page",
+											"value": "1",
+											"description": "page number"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "377"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"179-PugJqpSlEq85S/j1LlqVop3Yd8A\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:21:44 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"reservations\": [\n        {\n            \"serial\": 1,\n            \"customer_name\": \"ali aloosh\",\n            \"customer_mobile\": \"0500181665\",\n            \"table\": 1,\n            \"date\": \"2022-03-18T21:00:00.000Z\",\n            \"time_start\": \"12:00:00\",\n            \"time_end\": \"13:00:00\"\n        },\n        {\n            \"serial\": 2,\n            \"customer_name\": \"ali aloosh\",\n            \"customer_mobile\": \"0500181665\",\n            \"table\": 1,\n            \"date\": \"2022-03-18T21:00:00.000Z\",\n            \"time_start\": \"21:00:00\",\n            \"time_end\": \"22:30:00\"\n        }\n    ],\n    \"nextPage\": 2,\n    \"hasNextPage\": false\n}"
+						}
+					]
+				},
+				{
+					"name": "time slots",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api-reservation/time-slots/:seats",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api-reservation",
+								"time-slots",
+								":seats"
+							],
+							"variable": [
+								{
+									"key": "seats",
+									"value": "3",
+									"description": "number of seats required by client"
+								}
+							]
+						},
+						"description": "Return available time slots for today, starting from now. on tables that has the same number of supplied seats or more."
+					},
+					"response": [
+						{
+							"name": "time slots",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api-reservation/time-slots/:seats",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-reservation",
+										"time-slots",
+										":seats"
+									],
+									"variable": [
+										{
+											"key": "seats",
+											"value": "3",
+											"description": "number of seats required by client"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "171"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"ab-Yflc/mgfCRKfyiqZ4PyJlyiYgEk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:22:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"timeSlots\": {\n        \"1\": [\n            {\n                \"timeStart\": \"10:22 pm\",\n                \"timeEnd\": \"11:59 pm\"\n            }\n        ],\n        \"2\": [\n            {\n                \"timeStart\": \"10:22 pm\",\n                \"timeEnd\": \"11:59 pm\"\n            }\n        ],\n        \"3\": [\n            {\n                \"timeStart\": \"10:22 pm\",\n                \"timeEnd\": \"11:59 pm\"\n            }\n        ]\n    }\n}"
+						},
+						{
+							"name": "time slots (no tables)",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:3000/api-reservation/time-slots/:seats",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-reservation",
+										"time-slots",
+										":seats"
+									],
+									"variable": [
+										{
+											"key": "seats",
+											"value": "10"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "79"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"4f-k36gV5iZHM2Pr6UJK0fKVRjXQAM\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:22:59 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"Sorry there is no available tables that matchs requested seats 10\"\n}"
+						}
+					]
+				},
+				{
+					"name": "new reservation",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"customerName\": \"sara ali\",\r\n    \"mobile\": \"0535225744\",\r\n    \"timeStart\": \"10:30 pm\",\r\n    \"timeEnd\": \"11:00 pm\",\r\n    \"table\": \"2\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3000/api-reservation/new-reservation",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api-reservation",
+								"new-reservation"
+							]
+						},
+						"description": "Add new reservation. it dose not allow creating of the new reservation if there is conflict on the table by another reservation."
+					},
+					"response": [
+						{
+							"name": "new reservation",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerName\": \"sara ali\",\r\n    \"mobile\": \"0535225744\",\r\n    \"timeStart\": \"10:30 pm\",\r\n    \"timeEnd\": \"11:00 pm\",\r\n    \"table\": \"2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api-reservation/new-reservation",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-reservation",
+										"new-reservation"
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "95"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"5f-6wXRBW5H2wyz29V6thdLH+fvEVg\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:16:43 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"message\": \"table 2 is reserved at this time slot (from: 10:30 pm to: 11:00 pm) for: sara ali\"\n}"
+						},
+						{
+							"name": "new reservation (time slot conflict)",
+							"originalRequest": {
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"customerName\": \"sara ali\",\r\n    \"mobile\": \"0535225744\",\r\n    \"timeStart\": \"10:30 pm\",\r\n    \"timeEnd\": \"11:00 pm\",\r\n    \"table\": \"2\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:3000/api-reservation/new-reservation",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "3000",
+									"path": [
+										"api-reservation",
+										"new-reservation"
+									]
+								}
+							},
+							"status": "Conflict",
+							"code": 409,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "X-Powered-By",
+									"value": "Express"
+								},
+								{
+									"key": "Access-Control-Allow-Origin",
+									"value": "*"
+								},
+								{
+									"key": "Access-Control-Allow-Headers",
+									"value": "Origin, X-Requested-With, Content-Type, Accept, Authorization"
+								},
+								{
+									"key": "Access-Control-Allow-Methods",
+									"value": "GET, POST, PATCH, PUT, DELETE, OPTIONS"
+								},
+								{
+									"key": "Content-Type",
+									"value": "application/json; charset=utf-8"
+								},
+								{
+									"key": "Content-Length",
+									"value": "86"
+								},
+								{
+									"key": "ETag",
+									"value": "W/\"56-oo88wSXt0Jr4fIz3YFgeNYbSksk\""
+								},
+								{
+									"key": "Date",
+									"value": "Sat, 19 Mar 2022 19:17:11 GMT"
+								},
+								{
+									"key": "Connection",
+									"value": "keep-alive"
+								},
+								{
+									"key": "Keep-Alive",
+									"value": "timeout=5"
+								}
+							],
+							"cookie": [],
+							"body": "{\n    \"error\": \"table 2 is not available at this time slot (from: 10:30 pm to: 11:00 pm)\"\n}"
+						}
+					]
+				}
+			],
+			"description": "All Reservation manipulation APIs."
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"const options = {",
+					"  url:  'http://localhost:3000/api-user/login', ",
+					"  method: 'POST',",
+					"  body: {",
+					"    mode: 'urlencoded',",
+					"    urlencoded : [",
+					"      { key: 'empNum', value: '0001'},",
+					"      { key: 'password', value: '123456'},",
+					"    ]",
+					"  }",
+					"};",
+					"",
+					"pm.sendRequest(options, function (err, response) {",
+					"    pm.collectionVariables.set(\"token\", response.json().token);",
+					"});"
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "token",
+			"value": "",
+			"type": "string"
+		}
+	]
+}
